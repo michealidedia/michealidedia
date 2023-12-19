@@ -1,0 +1,45 @@
+sequence = input('enter sequence: ')
+codon_length = 3
+stop_codon = ['UAA', 'UAG', 'UGA']
+amino_acid_list = []
+
+for i in range(0,len(sequence)-codon_length+1):
+    codon = sequence[i:i+codon_length]
+    print(i, codon)
+    if codon in ['UUU','UUC']:
+        amino_acid = 'Phenylalanine'
+        amino_acid_list.append(amino_acid)
+    elif codon in ['CUU', 'CUC', 'CUA', 'CUG', 'UUA', 'UUG']:
+        amino_acid = 'Leucine'
+        amino_acid_list.append(amino_acid)
+    elif codon in ['AUU', 'AUC', 'AUA']:
+        amino_acid = 'Isoleucine'
+        amino_acid_list.append(amino_acid)
+    elif codon == 'AUG':
+        amino_acid = 'Methionine'
+        amino_acid_list.append(amino_acid)
+    elif codon in ['GUU', 'GUC', 'GUA', 'GUG']:
+        amino_acid = 'Valine'
+        amino_acid_list.append(amino_acid)
+    elif codon in ['UCU','UCC', 'UCA', 'UCG', 'AGU', 'AGC']:
+        amino_acid = 'Serine'
+        amino_acid_list.append(amino_acid)
+    elif codon in ['CCU', 'CCC', 'CCA', 'CCG']:
+        amino_acid = 'Proline'
+        amino_acid_list.append(amino_acid)
+    elif codon in ['ACU','ACC','ACA','ACG']:
+        amino_acid = 'Threonine'
+        amino_acid_list.append(amino_acid)
+    elif codon in ['GCU', 'GCC', 'GCA', 'GCG']:
+        amino_acid = 'Alanine'
+        amino_acid_list.append(amino_acid)
+    elif codon in ['UAU', 'UAC']:
+        amino_acid = 'Tyrosine'
+        amino_acid_list.append(amino_acid)
+    elif codon in stop_codon:
+        amino_acid = 'Stop Codon'
+        amino_acid_list.append(amino_acid)
+        if amino_acid == 'Stop Codon':
+            break
+            quit()
+print(amino_acid_list)
